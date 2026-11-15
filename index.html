@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KARAAGE Lexicon — Trợ lý Thuật ngữ &amp; Diễn đạt IT Tiếng Nhật (MVP Phase 1)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=JetBrains+Mono:wght@500;600&family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Serif+JP:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar" role="banner">
+    <div class="topbar-inner">
+      <div class="brand-group">
+        <button type="button" class="brand-mark" data-nav="S01" aria-label="Về S01: Trang chủ">
+          <span class="stamp-badge">火2・カラアゲ</span>
+          <span class="brand-title">ITSS Lexicon <small>MVP Phase 1</small></span>
+        </button>
+      </div>
+
+      <nav class="flow-indicator" aria-label="Sơ đồ chuyển màn hình (画面遷移)">
+        <button type="button" class="flow-step is-active" data-flow-step="S01">
+          <span class="step-code">S01</span>
+          <span>Trang chủ</span>
+        </button>
+        <span class="flow-divider" aria-hidden="true">/</span>
+        <button type="button" class="flow-step" data-flow-step="S02">
+          <span class="step-code">S02</span>
+          <span>Tra cứu</span>
+        </button>
+        <span class="flow-divider" aria-hidden="true">→</span>
+        <button type="button" class="flow-step" data-flow-step="S03">
+          <span class="step-code">S03</span>
+          <span>Ôn tập</span>
+          <span class="step-counter" id="navSavedCount">3</span>
+        </button>
+        <span class="flow-divider" aria-hidden="true">/</span>
+        <button type="button" class="flow-step" data-flow-step="S04">
+          <span class="step-code">S04</span>
+          <span>Diễn đạt</span>
+        </button>
+        <span class="flow-divider" aria-hidden="true">→</span>
+        <button type="button" class="flow-step" data-flow-step="S05">
+          <span class="step-code">S05</span>
+          <span>Gợi ý</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="workspace" id="mainWorkspace">
+    <!-- ==========================================
+         S01: TRANG CHỦ (HOME)
+         Transitions:
+         - Chọn Tra cứu -> S02: Tra cứu
+         - Chọn Diễn đạt -> S04: Diễn đạt
+         ========================================== -->
+    <section id="screen-S01" class="screen is-active" aria-labelledby="s01-heading">
+      <div class="screen-banner">
+        <div class="screen-meta">
+          <span class="screen-id-pill">S01: Trang chủ</span>
+          <span class="screen-jp-sub">ホーム画面 ・ IT専門日本語リアルタイム支援</span>
+        </div>
+        <h1 id="s01-heading" class="hero-title">
+          Bắt nhịp bài giảng &amp; tự tin thảo luận IT bằng tiếng Nhật mà không sợ khựng lại vì từ vựng.
+        </h1>
+        <p class="hero-lead">
+          Giải pháp hỗ trợ sinh viên CNTT Việt – Nhật (HEDSPI) xử lý tức thời thuật ngữ Kanji chuyên ngành trong lúc nghe giảng và diễn đạt ý tưởng kỹ thuật bằng tiếng Nhật đơn giản khi thuyết trình, vấn đáp.
+        </p>
+      </div>
+
+      <div class="pathway-split" role="region" aria-label="Chọn chế độ sử dụng">
+        <!-- Challenge 1 Pathway -->
+        <article class="pathway-panel pathway-lookup">
+          <div class="pathway-header">
+            <span class="challenge-tag tag-vermilion">Giải quyết Thách thức ① ・ Khi đang nghe giảng &amp; làm bài</span>
+            <h2 class="pathway-title">Tra cứu nhanh &amp; Đánh dấu 1 chạm</h2>
+            <p class="pathway-desc">
+              Xem trước Cheat-sheet thuật ngữ trọng tâm của từng buổi học, tra cứu tức thời với độ trễ bằng 0 khi giảng viên nói nhanh, và bấm 1 chạm để lưu từ chưa rõ vào danh sách ôn tập.
+            </p>
+          </div>
+
+          <ul class="feature-checklist">
+            <li>
+              <svg class="icon-check" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5L8 14.5L16 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span><strong>Cheat-sheet theo bài giảng:</strong> Kanji, Furigana, từ gốc tiếng Anh &amp; nghĩa tiếng Việt cô đọng.</span>
+            </li>
+            <li>
+              <svg class="icon-check" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5L8 14.5L16 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span><strong>Tra cứu tức thời (Real-time):</strong> Tìm theo Kanji, cách đọc Hiragana/Romaji hoặc nghĩa tiếng Việt.</span>
+            </li>
+            <li>
+              <svg class="icon-check" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5L8 14.5L16 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span><strong>Đánh dấu 1 chạm (One-tap):</strong> Ghi nhận từ chưa hiểu trong 1 giây để không lỡ lời giảng tiếp theo.</span>
+            </li>
+          </ul>
+
+          <div class="pathway-footer">
+            <div class="pathway-stat">
+              <span class="stat-num" id="homeTermCount">14</span>
+              <span class="stat-label">thuật ngữ bài học sẵn sàng</span>
+            </div>
+            <button type="button" class="btn btn-vermilion btn-lg" id="btnHomeToLookup" data-nav="S02">
+              <span>Chọn Tra cứu</span>
+              <svg class="icon-arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </article>
+
+        <!-- Challenge 2 Pathway -->
+        <article class="pathway-panel pathway-express">
+          <div class="pathway-header">
+            <span class="challenge-tag tag-indigo">Giải quyết Thách thức ② ・ Khi thảo luận nhóm &amp; vấn đáp</span>
+            <h2 class="pathway-title">Diễn đạt khái niệm bằng tiếng Nhật đơn giản</h2>
+            <p class="pathway-desc">
+              Quên thuật ngữ tiếng Nhật khó khi đang phát biểu? Nhập từ khóa tiếng Việt hoặc tiếng Anh để nhận ngay cách diễn giải bằng tiếng Nhật đơn giản, ví dụ gần gũi và mẫu câu thảo luận.
+            </p>
+          </div>
+
+          <ul class="feature-checklist">
+            <li>
+              <svg class="icon-check" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5L8 14.5L16 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span><strong>Cách nói đơn giản (パラフレーズ):</strong> Diễn giải cơ chế kỹ thuật bằng từ vựng N4/N3 dễ nói.</span>
+            </li>
+            <li>
+              <svg class="icon-check" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5L8 14.5L16 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span><strong>Từ khóa tiếng Anh + Từ nối:</strong> Kết hợp thuật ngữ tiếng Anh chuẩn với mẫu câu tiếng Nhật tự nhiên.</span>
+            </li>
+            <li>
+              <svg class="icon-check" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5L8 14.5L16 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span><strong>Ví dụ đời thường &amp; Khung phát biểu:</strong> Mẫu câu đặt câu hỏi, phản biện và trả lời giảng viên.</span>
+            </li>
+          </ul>
+
+          <div class="pathway-footer">
+            <div class="pathway-stat">
+              <span class="stat-num" id="homeConceptCount">8</span>
+              <span class="stat-label">chủ đề &amp; mẫu diễn đạt trực tiếp</span>
+            </div>
+            <button type="button" class="btn btn-indigo btn-lg" id="btnHomeToExpress" data-nav="S04">
+              <span>Chọn Diễn đạt</span>
+              <svg class="icon-arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </article>
+      </div>
+
+      <!-- Visual Screen Transition Map Reference -->
+      <div class="transition-strip" aria-label="Luồng thao tác 5 màn hình">
+        <div class="transition-strip-title">
+          <strong>Luồng màn hình trực quan (画面遷移図):</strong>
+          <span>Bấm trực tiếp vào một trong hai chức năng chính ở trên để trải nghiệm trọn vẹn luồng thao tác.</span>
+        </div>
+        <div class="transition-pills">
+          <span class="t-node">S01: Trang chủ</span>
+          <span class="t-edge">→ Chọn Tra cứu →</span>
+          <span class="t-node">S02: Tra cứu</span>
+          <span class="t-edge">→ Xem từ đã lưu →</span>
+          <span class="t-node">S03: Ôn tập</span>
+          <span class="t-sep">|</span>
+          <span class="t-node">S01: Trang chủ</span>
+          <span class="t-edge">→ Chọn Diễn đạt →</span>
+          <span class="t-node">S04: Diễn đạt</span>
+          <span class="t-edge">→ Nhấn Xem gợi ý →</span>
+          <span class="t-node">S05: Gợi ý</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         S02: TRA CỨU (LOOKUP & CHEAT-SHEET)
+         Transitions:
+         - Trang chủ -> S01: Trang chủ
+         - Xem từ đã lưu -> S03: Ôn tập
+         ========================================== -->
+    <section id="screen-S02" class="screen" aria-labelledby="s02-heading" hidden>
+      <div class="screen-nav-bar">
+        <button type="button" class="btn btn-outline" data-nav="S01">
+          <svg class="icon-arrow-left" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M16 10H4M4 10L9 5M4 10L9 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Trang chủ</span>
+        </button>
+
+        <div class="screen-id-group">
+          <span class="screen-id-pill">S02: Tra cứu</span>
+          <span class="screen-jp-sub">講義別チートシート ＆ リアルタイム高速検索</span>
+        </div>
+
+        <button type="button" class="btn btn-vermilion" id="btnLookupToReview" data-nav="S03">
+          <svg class="icon-bookmark" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 3.5C5 2.94772 5.44772 2.5 6 2.5H14C14.5523 2.5 15 2.94772 15 3.5V17.5L10 14L5 17.5V3.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          <span>Xem từ đã lưu</span>
+          <span class="badge-pill" id="s02SavedBadge">3</span>
+        </button>
+      </div>
+
+      <div class="screen-header-compact">
+        <h2 id="s02-heading" class="screen-title">Cheat-sheet &amp; Tra cứu nhanh thuật ngữ trong giờ học</h2>
+        <p class="screen-subtitle">
+          Chọn bài học để xem trước các thuật ngữ sẽ xuất hiện nhiều trên slide, hoặc gõ tìm nhanh trong 1 giây. Bấm <strong>Đánh dấu 1 chạm</strong> với từ chưa kịp nhớ để lưu vào danh sách ôn tập.
+        </p>
+      </div>
+
+      <!-- Controls: Search + Lecture Filter + Quick 1-Tap Note -->
+      <div class="lookup-toolbar">
+        <div class="search-box">
+          <label for="termSearchInput" class="sr-only">Tìm nhanh thuật ngữ bằng Kanji, Hiragana, Romaji, tiếng Việt hoặc tiếng Anh</label>
+          <svg class="search-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="2"/><path d="M13.5 13.5L17.5 17.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <input
+            type="search"
+            id="termSearchInput"
+            class="search-input"
+            placeholder="Gõ nhanh: 画面遷移, sen'i, khóa chính, độ trễ, MVP, xác thực..."
+            autocomplete="off"
+          />
+          <button type="button" class="search-clear" id="btnClearSearch" hidden aria-label="Xóa từ khóa tìm kiếm">Xóa</button>
+        </div>
+
+        <div class="lesson-tabs" role="tablist" aria-label="Lọc Cheat-sheet theo bài giảng">
+          <button type="button" class="lesson-tab is-active" data-lesson="all" role="tab" aria-selected="true">
+            Tất cả bài giảng (14)
+          </button>
+          <button type="button" class="lesson-tab" data-lesson="itss09" role="tab" aria-selected="false">
+            Bài 09: Solution Interview &amp; MVP
+          </button>
+          <button type="button" class="lesson-tab" data-lesson="dbnet" role="tab" aria-selected="false">
+            CSDL &amp; Hệ thống mạng
+          </button>
+          <button type="button" class="lesson-tab" data-lesson="swe" role="tab" aria-selected="false">
+            Kỹ thuật Phần mềm &amp; API
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick phonetic capture when lecturer speaks too fast -->
+      <form class="quick-capture-bar" id="quickCaptureForm">
+        <div class="quick-capture-label">
+          <span class="pulse-dot" aria-hidden="true"></span>
+          <strong>Nghe thoáng qua từ lạ trên lớp?</strong>
+          <span>Ghi tạm âm nghe được (Katakana/Romaji) để tra sau:</span>
+        </div>
+        <div class="quick-capture-controls">
+          <input
+            type="text"
+            id="quickNoteInput"
+            class="quick-note-input"
+            placeholder="VD: tekigousei / せきにんぶんかい (nghe ở phút 25)..."
+            aria-label="Nhập nhanh từ nghe thoáng qua trong bài giảng"
+          />
+          <button type="submit" class="btn btn-secondary">
+            + Lưu 1 chạm vào Ôn tập
+          </button>
+        </div>
+      </form>
+
+      <!-- Glossary Table / Cheat-Sheet List -->
+      <div class="term-list-meta">
+        <span id="termResultSummary">Đang hiển thị <strong>14</strong> thuật ngữ trọng tâm</span>
+        <span class="meta-hint">Mẹo: Bấm nút <strong>Đánh dấu 1 chạm</strong> ở bên phải mỗi từ để thêm vào màn hình <strong>S03: Ôn tập</strong>.</span>
+      </div>
+
+      <div id="termListContainer" class="term-list" role="list"></div>
+    </section>
+
+    <!-- ==========================================
+         S03: ÔN TẬP (SAVED WORDS / REVIEW LIST)
+         Transitions:
+         - Quay lại -> S02: Tra cứu
+         - Trang chủ -> S01: Trang chủ
+         ========================================== -->
+    <section id="screen-S03" class="screen" aria-labelledby="s03-heading" hidden>
+      <div class="screen-nav-bar">
+        <button type="button" class="btn btn-outline" data-nav="S02">
+          <svg class="icon-arrow-left" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M16 10H4M4 10L9 5M4 10L9 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Quay lại (S02: Tra cứu)</span>
+        </button>
+
+        <div class="screen-id-group">
+          <span class="screen-id-pill">S03: Ôn tập</span>
+          <span class="screen-jp-sub">未理解用語の復習リスト・2段階解説</span>
+        </div>
+
+        <button type="button" class="btn btn-outline" data-nav="S01">
+          <span>Trang chủ</span>
+        </button>
+      </div>
+
+      <div class="screen-header-compact">
+        <div class="review-header-row">
+          <div>
+            <h2 id="s03-heading" class="screen-title">Danh sách từ đã lưu để ôn tập sau giờ học</h2>
+            <p class="screen-subtitle">
+              Tổng hợp các thuật ngữ bạn đã đánh dấu 1 chạm trong giờ giảng. Hỗ trợ <strong>2 mức giải thích</strong> (Tiếng Nhật đơn giản &amp; Giải thích chuyên sâu) cùng chế độ ẩn nghĩa để tự kiểm tra trí nhớ.
+            </p>
+          </div>
+          <div class="review-mode-controls">
+            <button type="button" class="btn btn-secondary" id="btnToggleFlashcard">
+              Chế độ Tự kiểm tra (Ẩn nghĩa tiếng Việt): <strong id="flashcardStateText">TẮT</strong>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="reviewListContainer" class="review-list" role="list"></div>
+    </section>
+
+    <!-- ==========================================
+         S04: DIỄN ĐẠT (PARAPHRASE & DISCUSSION INPUT)
+         Transitions:
+         - Trang chủ -> S01: Trang chủ
+         - Nhấn Xem gợi ý -> S05: Gợi ý
+         ========================================== -->
+    <section id="screen-S04" class="screen" aria-labelledby="s04-heading" hidden>
+      <div class="screen-nav-bar">
+        <button type="button" class="btn btn-outline" data-nav="S01">
+          <svg class="icon-arrow-left" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M16 10H4M4 10L9 5M4 10L9 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Trang chủ</span>
+        </button>
+
+        <div class="screen-id-group">
+          <span class="screen-id-pill">S04: Diễn đạt</span>
+          <span class="screen-jp-sub">専門用語の言い換え・発言準備</span>
+        </div>
+
+        <button type="button" class="btn btn-indigo" id="btnTopToSuggest">
+          <span>Nhấn Xem gợi ý</span>
+          <svg class="icon-arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+
+      <div class="screen-header-compact">
+        <h2 id="s04-heading" class="screen-title">Chuẩn bị diễn đạt chuyên môn khi quên thuật ngữ tiếng Nhật</h2>
+        <p class="screen-subtitle">
+          Chọn khái niệm kỹ thuật (hoặc nhập ý bạn muốn nói bằng tiếng Việt / tiếng Anh) và ngữ cảnh phát biểu, sau đó nhấn <strong>Xem gợi ý</strong> để nhận cách nói tiếng Nhật đơn giản cùng ví dụ gần gũi.
+        </p>
+      </div>
+
+      <div class="express-builder">
+        <!-- Step 1: Select or type concept -->
+        <div class="builder-step">
+          <div class="builder-step-header">
+            <span class="step-num-badge">Bước 1</span>
+            <h3 class="builder-step-title">Chọn nhanh khái niệm kỹ thuật hoặc tự nhập từ khóa bạn muốn diễn đạt</h3>
+          </div>
+
+          <div class="concept-chips" id="conceptChipsContainer" role="radiogroup" aria-label="Chọn khái niệm kỹ thuật"></div>
+
+          <div class="custom-concept-box">
+            <label for="customConceptInput" class="custom-concept-label">
+              Hoặc gõ ý tưởng / từ tiếng Anh / tiếng Việt bất kỳ bạn đang muốn phát biểu:
+            </label>
+            <input
+              type="text"
+              id="customConceptInput"
+              class="search-input"
+              placeholder="Ví dụ: Sơ đồ chuyển màn hình (Screen Transition), Độ trễ (Latency), Khóa chính (Primary Key)..."
+            />
+          </div>
+        </div>
+
+        <!-- Step 2: Select speaking situation -->
+        <div class="builder-step">
+          <div class="builder-step-header">
+            <span class="step-num-badge">Bước 2</span>
+            <h3 class="builder-step-title">Bạn đang cần phát biểu trong tình huống nào trên lớp?</h3>
+          </div>
+
+          <div class="situation-grid" id="situationGrid" role="radiogroup" aria-label="Tình huống phát biểu">
+            <button type="button" class="situation-option is-selected" data-situation="explain" role="radio" aria-checked="true">
+              <span class="situation-title">Giải thích khái niệm / cơ chế</span>
+              <span class="situation-jp">技術概念・仕組みの説明</span>
+              <span class="situation-sub">Khi quên từ Kanji chuyên ngành nhưng muốn giải thích bản chất hoạt động</span>
+            </button>
+
+            <button type="button" class="situation-option" data-situation="discuss" role="radio" aria-checked="false">
+              <span class="situation-title">Đưa ý kiến thảo luận nhóm</span>
+              <span class="situation-jp">グループワーク・提案</span>
+              <span class="situation-sub">Khi thảo luận thiết kế MVP, đề xuất giải pháp hoặc so sánh ưu nhược điểm</span>
+            </button>
+
+            <button type="button" class="situation-option" data-situation="question" role="radio" aria-checked="false">
+              <span class="situation-title">Đặt câu hỏi cho giảng viên</span>
+              <span class="situation-jp">先生への質問・意味確認</span>
+              <span class="situation-sub">Khi muốn xác nhận lại xem cách hiểu của mình về thuật ngữ có đúng không</span>
+            </button>
+
+            <button type="button" class="situation-option" data-situation="qa" role="radio" aria-checked="false">
+              <span class="situation-title">Trả lời vấn đáp / Thuyết trình</span>
+              <span class="situation-jp">発表・質疑応答への対応</span>
+              <span class="situation-sub">Khi giảng viên hỏi sâu về kỹ thuật và cần câu mở đầu tự tin để trả lời</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 3: Trigger transition to S05 -->
+        <div class="builder-cta-bar">
+          <div class="selected-preview">
+            <span>Đang chọn:</span>
+            <strong id="s04PreviewLabel">Sơ đồ chuyển màn hình (画面遷移図 / Screen Transition)</strong>
+          </div>
+          <button type="button" class="btn btn-indigo btn-lg" id="btnSubmitExpress">
+            <span>Nhấn Xem gợi ý (Sang S05: Gợi ý)</span>
+            <svg class="icon-arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         S05: GỢI Ý (SUGGESTED PARAPHRASES & TEMPLATES)
+         Transitions:
+         - Nhấn Thử lại -> S04: Diễn đạt
+         - Trang chủ -> S01: Trang chủ
+         ========================================== -->
+    <section id="screen-S05" class="screen" aria-labelledby="s05-heading" hidden>
+      <div class="screen-nav-bar">
+        <button type="button" class="btn btn-outline" id="btnRetryExpress" data-nav="S04">
+          <svg class="icon-arrow-left" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M16 10H4M4 10L9 5M4 10L9 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Nhấn Thử lại (S04: Diễn đạt)</span>
+        </button>
+
+        <div class="screen-id-group">
+          <span class="screen-id-pill">S05: Gợi ý</span>
+          <span class="screen-jp-sub">簡単な日本語での言い換え・身近な例・発言テンプレート</span>
+        </div>
+
+        <button type="button" class="btn btn-outline" data-nav="S01">
+          <span>Trang chủ</span>
+        </button>
+      </div>
+
+      <div id="suggestionResultContainer" class="suggestion-result"></div>
+    </section>
+  </main>
+
+  <!-- Toast feedback for 1-tap actions -->
+  <div id="toastNotification" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
