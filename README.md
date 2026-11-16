@@ -3,22 +3,37 @@
 Tra cứu thuật ngữ IT tiếng Nhật và gợi ý cách diễn đạt đơn giản cho sinh viên.
 HTML, CSS, JavaScript thuần (ES modules), chưa có backend.
 
-## Chạy thử
-
-ES modules không chạy khi mở trực tiếp `index.html` bằng `file://`, cần một web server tĩnh:
+## Lấy code
 
 ```bash
-# Cách 1: Python
-python -m http.server 8080 --directory frontend
+# Lần đầu
+git clone https://github.com/VA0511/kaarage-ITSS-2.git
+cd kaarage-ITSS-2
 
-# Cách 2: Node (lần đầu npx sẽ tải gói serve; --yes để khỏi hỏi)
-npx --yes serve frontend -l 8080
-
-# Cách 3: Docker
-docker build -t karaage . && docker run -p 8080:80 karaage
+# Đã clone rồi, cập nhật code mới
+git checkout main
+git pull origin main
 ```
 
-Mở http://localhost:8080
+Không cần cài thư viện hay build.
+
+## Chạy thử
+
+ES modules không chạy khi mở trực tiếp `index.html` bằng `file://`, cần một web server tĩnh.
+Chạy một trong các lệnh sau ở thư mục gốc của repo:
+
+```bash
+# Cách 1: Node (lần đầu npx sẽ tải gói serve; --yes để khỏi hỏi)
+npx --yes serve frontend -l 3000
+
+# Cách 2: Python (trên Windows có thể dùng `py` thay cho `python`)
+python -m http.server 3000 --directory frontend
+
+# Cách 3: Docker
+docker build -t karaage . && docker run -p 3000:80 karaage
+```
+
+Mở http://localhost:3000 (dừng server bằng `Ctrl + C`).
 
 ## Sơ đồ chuyển màn hình
 
