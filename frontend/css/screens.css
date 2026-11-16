@@ -1,0 +1,383 @@
+/* Screen-specific layout, grouped by screen. */
+
+/* ---------- S01 Trang chủ ---------- */
+
+.home-head {
+  margin: 16px 0 32px;
+}
+
+.home-head .screen-title {
+  font-size: 2rem;
+  max-width: 18ch;
+}
+
+.choices {
+  display: grid;
+  gap: 12px;
+}
+
+.choice {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  text-align: left;
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+.choice:hover {
+  border-color: var(--accent);
+}
+
+.choice:active {
+  transform: scale(0.995);
+}
+
+.choice-mark {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.choice-body {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+}
+
+.choice-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.choice-desc {
+  color: var(--muted);
+}
+
+.choice-meta {
+  margin-top: 6px;
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+.choice-arrow {
+  color: var(--muted);
+  transition: color 0.15s, transform 0.15s;
+}
+
+.choice:hover .choice-arrow {
+  color: var(--accent);
+  transform: translateX(2px);
+}
+
+/* ---------- S02 Tra cứu ---------- */
+
+.search {
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.search > .icon {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  color: var(--muted);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.search-input {
+  padding-left: 42px;
+}
+
+.result-count {
+  margin: 20px 0 4px;
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+.term {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 0;
+  border-top: 1px solid var(--border);
+}
+
+.term-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.term-jp {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.term-sub {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.term-vi {
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+.term-desc {
+  margin-top: 2px;
+  font-size: 0.9375rem;
+  color: var(--muted);
+}
+
+.save-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: none;
+  min-height: 36px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.save-btn .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.save-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.save-btn[aria-pressed="true"] {
+  border-color: var(--accent-soft);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* ---------- S03 Ôn tập ---------- */
+
+.review-list {
+  display: grid;
+  gap: 12px;
+}
+
+.review-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.review-head .icon-btn {
+  margin: -8px -8px 0 0;
+}
+
+.review-meaning {
+  margin-top: 8px;
+}
+
+.reveal-btn {
+  display: none;
+  margin-top: 12px;
+  padding: 6px 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.review-list.is-hiding .review-card:not(.is-revealed) .review-meaning {
+  display: none;
+}
+
+.review-list.is-hiding .review-card:not(.is-revealed) .reveal-btn {
+  display: inline-block;
+}
+
+.explain {
+  margin-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.explain summary {
+  padding: 10px 0 2px;
+  color: var(--muted);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.explain summary:hover {
+  color: var(--text);
+}
+
+.explain dl {
+  display: grid;
+  gap: 2px;
+  padding-top: 8px;
+}
+
+.explain dt {
+  margin-top: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.explain dt:first-child {
+  margin-top: 0;
+}
+
+/* ---------- S04 Diễn đạt ---------- */
+
+.express-form {
+  display: grid;
+  gap: 28px;
+}
+
+.field {
+  display: grid;
+  gap: 12px;
+}
+
+.field-label {
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.option {
+  display: grid;
+  gap: 2px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  text-align: left;
+  transition: border-color 0.15s, background-color 0.15s;
+}
+
+.option:hover {
+  border-color: var(--text);
+}
+
+.option[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+.option-title {
+  font-weight: 600;
+}
+
+.option-jp {
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ---------- S05 Gợi ý ---------- */
+
+.card-accent {
+  border-color: var(--accent);
+  box-shadow: inset 4px 0 0 var(--accent), var(--shadow);
+}
+
+.jp-text {
+  line-height: 1.8;
+}
+
+.jp-lg {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.romaji {
+  margin-top: 6px;
+  font-size: 0.875rem;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.vi-text {
+  margin-top: 8px;
+  color: var(--muted);
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+}
+
+/* ---------- Small screens ---------- */
+
+@media (max-width: 520px) {
+  .screen-title {
+    font-size: 1.5rem;
+  }
+
+  .home-head .screen-title {
+    font-size: 1.75rem;
+  }
+
+  .choice {
+    padding: 16px;
+  }
+
+  .choice-mark {
+    width: 44px;
+    height: 44px;
+    font-size: 1.25rem;
+  }
+
+  .save-btn span {
+    display: none;
+  }
+
+  .save-btn {
+    width: 40px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .options {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions .btn {
+    width: 100%;
+  }
+}
