@@ -20,13 +20,6 @@ docker build -t karaage . && docker run -p 8080:80 karaage
 
 Mở http://localhost:8080
 
-## Deploy
-
-Workflow `.github/workflows/pages.yml` tự đưa `frontend/` lên GitHub Pages mỗi khi push lên `main`.
-Lần đầu cần bật: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-
-URL: https://va0511.github.io/kaarage-ITSS-2/
-
 ## Sơ đồ chuyển màn hình
 
 | Từ | Thao tác | Đến |
